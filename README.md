@@ -26,7 +26,9 @@ Or install it yourself as:
 
 3. 在 [这个页面](http://www.yuntongxun.com/member/app/view) 创建 App，获得 app_id
 
-4. 在 [这里](http://www.yuntongxun.com/member/smsTemplate/view) 创建你的短信模板
+4. 在 [这里](http://www.yuntongxun.com/member/smsTemplate/view) 创建你的短信模板，比如：
+
+    `【薄荷减肥】您的的验证码是{1}`
 
 5. 静静等待云通讯的管理员审核
 
@@ -42,21 +44,21 @@ Cloopen.app_id = "Your Yuntongxun App id"
 
 ```
 
-### Send Short Message
+### 发短信
 
 参数说明：
 
 * cellphone 手机号
 * datas 短信模板中的变量的替换值
 * template_id 短信模板 id
-* evn 分为 production(生产环境), development(测试环境)
+* env 分为 production(生产环境), development(测试环境)
 
 
 ```ruby
 Cloopen::ShortMessage.send(
   cellphone: "18668189111",
   datas: [" 测试", "测试"],
-  template_id: "1"
+  template_id: "1",
   env: "production"
 )
 ```
