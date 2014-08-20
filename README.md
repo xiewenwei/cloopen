@@ -37,6 +37,8 @@ Or install it yourself as:
 
 6. 在你的项目中设置以下配置文件
 
+* ruby project
+
 ```ruby
 Cloopen.account_sid = "Your Yuntongxun Account Sid"
 Cloopen.auth_token = "Your Yuntongxun Auth token"
@@ -44,24 +46,20 @@ Cloopen.app_id = "Your Yuntongxun App id"
 
 ```
 
-### 发短信
-
-参数说明：
-
-* cellphone 手机号
-* datas 短信模板中的变量的替换值
-* template_id 短信模板 id
-* env 分为 production(生产环境), development(测试环境)
-
+* rails project
 
 ```ruby
-Cloopen::ShortMessage.send(
-  cellphone: "18668189111",
-  datas: [" 测试", "测试"],
-  template_id: "1",
-  env: "production"
-)
+  rails g cloopen
 ```
+将生成一个cloopen_setup.rb到config/initialiers/目录下，修改相应参数即可
+
+### 发送消息
+
+```ruby
+  cs = Cloopen::Sms.new '15012345678', '1000', ["arg1", "ar2"...]
+  cs.deliver
+```
+第一个参数是手机号码，第二个是模板id，第三个是对应消息
 
 ## Contributing
 

@@ -1,12 +1,17 @@
 require "cloopen/version"
-require "cloopen/sign"
-require "rest_client"
-require "cloopen/short_message"
 
 module Cloopen
-  class << self
-    attr_accessor :account_sid
-    attr_accessor :auth_token
-    attr_accessor :app_id
+
+  attr_accessor :app_root, :account_sid, :auth_token, :app_id, :sms_uri
+
+  def setup
+    yield self
   end
+
+  extend self
+
 end
+
+require "cloopen/engine"
+require "cloopen/sms"
+require "cloopen/sign"
