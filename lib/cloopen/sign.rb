@@ -2,7 +2,8 @@ require 'digest/md5'
 require 'base64'
 
 module Cloopen
-  module Sign
+
+  class Sign
 
     # 生成验证参数
     # 1. SigParameter
@@ -13,5 +14,7 @@ module Cloopen
       authorization = Base64.strict_encode64("#{Cloopen.account_sid}:#{time}")
       [sig_parameter, authorization]
     end
+
   end
+
 end
