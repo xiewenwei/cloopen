@@ -53,7 +53,7 @@ Cloopen.env = "production" # 如果是测试环境，填写 "development"
 ### 发送短信
 
 ```ruby
-  Cloopen::SMS.deliver(18668189883, 3127, ['a32d1k'])
+  Cloopen::SMS.deliver(18668189884, 3127, ['a32d1k'])
 ```
 * 第一个参数是手机号码
 
