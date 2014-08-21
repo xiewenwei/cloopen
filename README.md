@@ -61,6 +61,11 @@ Cloopen.env = "production" # 如果是测试环境，填写 "development"
 
 * 第三个是模板中的变量的值。用于替换  `【薄荷网】您的的验证码是{1}` 中的变量。
 
+## 荣耀归给仨小伙
+
+* [tteng](http://github.com/tteng)
+* [xiaoronglv](https://github.com/xiaoronglv)
+* [Teddy](https://github.com/teddy1004)
 
 ## Contributing
 
