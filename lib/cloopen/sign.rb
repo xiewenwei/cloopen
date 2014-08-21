@@ -2,9 +2,7 @@ require 'digest/md5'
 require 'base64'
 
 module Cloopen
-
   class Sign
-
     # 生成验证参数
     # 1. SigParameter
     # 2. Authorization

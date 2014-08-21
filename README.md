@@ -18,48 +18,49 @@ Or install it yourself as:
 
 ## Usage
 
-### Config
+### 申请云通讯的短信通道服务
 
-1. 注册 [云通讯](http://www.yuntongxun.com) ，并通过企业认证（只有企业帐号才可以发短信）。
+1. 注册 [云通讯](http://www.yuntongxun.com) ，申请企业认证（只有企业帐号才可以发短信）。
 
-2. 在 [这个页面](http://www.yuntongxun.com/member/main) 查看 account_sid, auth_token
+2. 在 [这个页面](http://www.yuntongxun.com/member/main) 查看帐号的 account_sid, auth_token
 
 3. 在 [这个页面](http://www.yuntongxun.com/member/app/view) 创建 App，获得 app_id
 
 4. 在 [这里](http://www.yuntongxun.com/member/smsTemplate/view) 创建你的短信模板，比如：
 
-    `【薄荷减肥】您的的验证码是{1}`
+    `【薄荷网】您的的验证码是{1}`
 
-5. 静静等待云通讯的管理员审核
+5. 等待云通讯的管理员审核，大概需要 2 个小时的时间。
 
     * App 通过审核
     * 短信模板通过审核
 
-6. 在你的项目中设置以下配置文件
+### 生成配置文件
 
-* ruby project
+1. 执行 `rails g cloopen` 生成配置文件 `config/initialiers/cloopen_setup.rb`
+
+2. 替换 sid、token、app_id、env
 
 ```ruby
+# config/initialiers/cloopen_setup.rb
 Cloopen.account_sid = "Your Yuntongxun Account Sid"
 Cloopen.auth_token = "Your Yuntongxun Auth token"
 Cloopen.app_id = "Your Yuntongxun App id"
-
+Cloopen.env = "production" # 如果是测试环境，填写 "development"
 ```
 
-* rails project
+
+### 发送短信
 
 ```ruby
-  rails g cloopen
+  Cloopen::SMS.deliver(18668189883, 3127, ['a32d1k'])
 ```
-将生成一个cloopen_setup.rb到config/initialiers/目录下，修改相应参数即可
+* 第一个参数是手机号码
 
-### 发送消息
+* 第二个是模板id。只有模板通过审核后，才可以用这个模板发短信。
 
-```ruby
-  cs = Cloopen::Sms.new '15012345678', '1000', ["arg1", "ar2"...]
-  cs.deliver
-```
-第一个参数是手机号码，第二个是模板id，第三个是对应消息
+* 第三个是模板中的变量的值。用于替换  `【薄荷网】您的的验证码是{1}` 中的变量。
+
 
 ## Contributing
 
