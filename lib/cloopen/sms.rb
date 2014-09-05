@@ -20,11 +20,16 @@ module Cloopen
 
       sms_url = "#{base_uri}#{Cloopen.account_sid}/SMS/TemplateSMS?sig=#{sig_parameter}"
 
+
+      # 不得不说一个很奇葩的问题，java 的强类型弱爆了！
+      # 所有的参数必须是 string， integer 会报错 500
+      # * 错误的datas: [311233, 112311]
+      # * 正确的datas: ["311233", "112311"]
       payload = {
-        to:         cellphone,
-        appId:      Cloopen.app_id,
-        templateId: template_id,
-        datas:      contents
+        to:         cellphone.to_s,
+        appId:      Cloopen.app_id.to_s,
+        templateId: template_id.to_s,
+        datas:      contents.map(&:to_s)
       }.to_json
 
       header = {

@@ -1,6 +1,6 @@
 # Cloopen
 
-云通讯发送短信的 Gem.
+云通讯发送短信的 Gem。
 
 ## Installation
 
@@ -44,11 +44,10 @@ Or install it yourself as:
 ```ruby
 # config/initialiers/cloopen_setup.rb
 Cloopen.account_sid = "Your Yuntongxun Account Sid"
-Cloopen.auth_token = "Your Yuntongxun Auth token"
-Cloopen.app_id = "Your Yuntongxun App id"
-Cloopen.env = "production" # 如果是测试环境，填写 "development"
+Cloopen.auth_token  = "Your Yuntongxun Auth token"
+Cloopen.app_id      = "Your Yuntongxun App id"
+Cloopen.env         = "production" # 如果是测试环境，填写 "development"
 ```
-
 
 ### 发送短信
 
@@ -57,9 +56,9 @@ Cloopen.env = "production" # 如果是测试环境，填写 "development"
 ```
 * 第一个参数是手机号码
 
-* 第二个是模板id。只有模板通过审核后，才可以用这个模板发短信。
+* 第二个是模板id。只能使用已审通过核的模板发短信。
 
-* 第三个是模板中的变量的值。用于替换  `【薄荷网】您的的验证码是{1}` 中的变量。
+* 第三个是模板中的变量的值。用于替换模板中的变量 1 `【薄荷网】您的的验证码是{1}` 。
 
 ## 荣耀归给仨小伙
 
