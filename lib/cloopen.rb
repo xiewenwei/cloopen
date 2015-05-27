@@ -1,5 +1,6 @@
 require "cloopen/version"
 require "cloopen/sms"
+require "cloopen/voice"
 require "cloopen/sign"
 
 module Cloopen
