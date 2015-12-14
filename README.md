@@ -49,10 +49,11 @@ Cloopen.app_id      = "Your Yuntongxun App id"
 Cloopen.env         = "production" # 如果是测试环境，填写 "development"
 ```
 
-### 发送短信
+### 发送验证码
 
 ```ruby
-  Cloopen::SMS.deliver(18668189884, 3127, ['a32d1k'])
+  Cloopen::SMS.deliver(18668189884, 3127, ['a32d1k'])   # 短信形式
+  Cloopen::Voice.deliver(18668189884, 3127, ['a32d1k']) # 语音形式
 ```
 * 第一个参数是手机号码
 
